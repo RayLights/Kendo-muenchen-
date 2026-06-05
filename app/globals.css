@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+/*
+ * Kendo München colour scheme.
+ *
+ * The old site could not be scraped from the build environment, so this uses a
+ * traditional Kendo palette: kon-iro indigo/navy (the colour of the keikogi and
+ * hakama) as the primary, with the crimson red of the kendo flag as the accent,
+ * on a warm "washi paper" background. To match an exact brand colour, change
+ * the four values under :root below — everything else derives from them.
+ */
+:root {
+  --color-paper: #f7f3ec; /* warm off-white background        */
+  --color-ink: #14181f; /* near-black text                   */
+  --color-navy: #16223f; /* primary – indigo / kon-iro        */
+  --color-navy-700: #233459;
+  --color-crimson: #b81d2b; /* accent – kendo red flag        */
+  --color-crimson-600: #9e1622;
+  --color-muted: #5c6473; /* secondary text                   */
+  --color-line: #e3dccf; /* hairline borders on paper         */
+}
+
+/* Expose the variables to Tailwind utilities (bg-navy, text-crimson, …). */
+@theme inline {
+  --color-paper: var(--color-paper);
+  --color-ink: var(--color-ink);
+  --color-navy: var(--color-navy);
+  --color-navy-700: var(--color-navy-700);
+  --color-crimson: var(--color-crimson);
+  --color-crimson-600: var(--color-crimson-600);
+  --color-muted: var(--color-muted);
+  --color-line: var(--color-line);
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-display), Georgia, "Times New Roman", serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem; /* keep anchors clear of the sticky header */
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Thin decorative top accent used by a few sections. */
+.kendo-rule {
+  height: 3px;
+  width: 3.5rem;
+  background: var(--color-crimson);
+  border-radius: 999px;
+}
