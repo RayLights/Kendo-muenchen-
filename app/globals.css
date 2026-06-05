@@ -1,33 +1,35 @@
 @import "tailwindcss";
 
 /*
- * Kendo München colour scheme.
+ * Kendo München colour scheme — Munich black & gold.
  *
- * The old site could not be scraped from the build environment, so this uses a
- * traditional Kendo palette: kon-iro indigo/navy (the colour of the keikogi and
- * hakama) as the primary, with the crimson red of the kendo flag as the accent,
- * on a warm "washi paper" background. To match an exact brand colour, change
- * the four values under :root below — everything else derives from them.
+ * Inspired by the colours of the City of Munich: a strong Munich gold/yellow
+ * accent on black, over a clean white background. To shift the exact tones,
+ * edit the values under :root — everything else derives from them.
+ *
+ * Contrast rule: gold is only ever used as a FILL behind black text/icons, or
+ * as text/icons ON black surfaces — never as text on white (it is unreadable).
+ * On white surfaces the accent colour is coal (black).
  */
 :root {
-  --color-paper: #f7f3ec; /* warm off-white background        */
-  --color-ink: #14181f; /* near-black text                   */
-  --color-navy: #16223f; /* primary – indigo / kon-iro        */
-  --color-navy-700: #233459;
-  --color-crimson: #b81d2b; /* accent – kendo red flag        */
-  --color-crimson-600: #9e1622;
-  --color-muted: #5c6473; /* secondary text                   */
-  --color-line: #e3dccf; /* hairline borders on paper         */
+  --color-paper: #ffffff; /* page background                   */
+  --color-ink: #16160f; /* near-black body text               */
+  --color-coal: #121212; /* black surfaces (hero, footer, …)  */
+  --color-coal-700: #2a2a2a;
+  --color-gold: #ffcc00; /* strong Munich gold accent         */
+  --color-gold-600: #e0a800; /* darker gold for hover         */
+  --color-muted: #595950; /* secondary text                   */
+  --color-line: #e7e5da; /* hairline borders                  */
 }
 
-/* Expose the variables to Tailwind utilities (bg-navy, text-crimson, …). */
+/* Expose the variables to Tailwind utilities (bg-coal, text-gold, …). */
 @theme inline {
   --color-paper: var(--color-paper);
   --color-ink: var(--color-ink);
-  --color-navy: var(--color-navy);
-  --color-navy-700: var(--color-navy-700);
-  --color-crimson: var(--color-crimson);
-  --color-crimson-600: var(--color-crimson-600);
+  --color-coal: var(--color-coal);
+  --color-coal-700: var(--color-coal-700);
+  --color-gold: var(--color-gold);
+  --color-gold-600: var(--color-gold-600);
   --color-muted: var(--color-muted);
   --color-line: var(--color-line);
 
@@ -48,10 +50,10 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* Thin decorative top accent used by a few sections. */
+/* Thin decorative accent bar (gold on white, reads well). */
 .kendo-rule {
-  height: 3px;
+  height: 4px;
   width: 3.5rem;
-  background: var(--color-crimson);
+  background: var(--color-gold);
   border-radius: 999px;
 }

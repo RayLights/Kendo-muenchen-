@@ -19,16 +19,16 @@ export default function Section({
   return (
     <section
       id={id}
-      className={tone === "tint" ? "bg-navy/[0.035]" : "bg-paper"}
+      className={tone === "tint" ? "bg-coal/[0.035]" : "bg-paper"}
     >
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
         <div className="max-w-2xl">
           {eyebrow && (
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-crimson">
+            <p className="inline-block bg-gold px-2.5 py-1 text-xs font-bold uppercase tracking-[0.18em] text-coal">
               {eyebrow}
             </p>
           )}
-          <h2 className="mt-2 font-display text-3xl font-bold text-navy sm:text-4xl">
+          <h2 className="mt-2 font-display text-3xl font-bold text-coal sm:text-4xl">
             {title}
           </h2>
           <div className="kendo-rule mt-4" />

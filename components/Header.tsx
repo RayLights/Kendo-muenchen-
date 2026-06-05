@@ -27,12 +27,12 @@ export default function Header() {
         <a href="#start" className="flex items-center gap-3">
           <span
             aria-hidden
-            className="grid h-9 w-9 place-items-center rounded-full bg-navy font-display text-lg leading-none text-paper"
+            className="grid h-9 w-9 place-items-center rounded-full bg-coal font-display text-lg leading-none text-gold"
           >
             剣
           </span>
           <span className="leading-tight">
-            <span className="block font-display text-base font-semibold text-navy">
+            <span className="block font-display text-base font-semibold text-coal">
               {site.name}
             </span>
             <span className="block text-[11px] uppercase tracking-[0.18em] text-muted">
@@ -47,7 +47,7 @@ export default function Header() {
             <a
               key={l.href}
               href={l.href}
-              className="text-sm font-medium text-ink/80 transition-colors hover:text-crimson"
+              className="border-b-2 border-transparent pb-0.5 text-sm font-medium text-ink/80 transition-colors hover:border-gold hover:text-coal"
             >
               {l.label}
             </a>
@@ -58,7 +58,7 @@ export default function Header() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
-              className="text-navy transition-colors hover:text-crimson"
+              className="text-coal transition-opacity hover:opacity-60"
             >
               <InstagramIcon className="h-5 w-5" />
             </a>
@@ -67,7 +67,7 @@ export default function Header() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook"
-              className="text-navy transition-colors hover:text-crimson"
+              className="text-coal transition-opacity hover:opacity-60"
             >
               <FacebookIcon className="h-5 w-5" />
             </a>
@@ -78,7 +78,7 @@ export default function Header() {
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="text-navy md:hidden"
+          className="text-coal md:hidden"
           aria-label={open ? "Menü schließen" : "Menü öffnen"}
           aria-expanded={open}
         >
@@ -99,7 +99,7 @@ export default function Header() {
                 <a
                   href={l.href}
                   onClick={() => setOpen(false)}
-                  className="block py-2.5 text-[15px] font-medium text-ink/85 hover:text-crimson"
+                  className="block py-2.5 text-[15px] font-medium text-ink/85 hover:text-coal"
                 >
                   {l.label}
                 </a>
@@ -110,7 +110,7 @@ export default function Header() {
                 href={site.social.instagram.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-sm font-medium text-navy"
+                className="flex items-center gap-2 text-sm font-medium text-coal"
               >
                 <InstagramIcon className="h-5 w-5" /> Instagram
               </a>
@@ -118,7 +118,7 @@ export default function Header() {
                 href={site.social.facebook.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-sm font-medium text-navy"
+                className="flex items-center gap-2 text-sm font-medium text-coal"
               >
                 <FacebookIcon className="h-5 w-5" /> Facebook
               </a>

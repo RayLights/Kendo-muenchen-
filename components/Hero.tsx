@@ -5,12 +5,12 @@ export default function Hero() {
   return (
     <section
       id="start"
-      className="relative overflow-hidden bg-navy text-paper"
+      className="relative overflow-hidden bg-coal text-paper"
     >
       {/* Decorative concentric circle, evoking a target / hinomaru */}
       <div
         aria-hidden
-        className="pointer-events-none absolute -right-24 -top-24 h-[28rem] w-[28rem] rounded-full border-[3px] border-crimson/30"
+        className="pointer-events-none absolute -right-24 -top-24 h-[28rem] w-[28rem] rounded-full border-[3px] border-gold/30"
       />
       <div
         aria-hidden
@@ -19,8 +19,8 @@ export default function Hero() {
 
       <div className="relative mx-auto grid max-w-6xl gap-10 px-4 py-20 sm:px-6 sm:py-28 lg:grid-cols-[1.4fr_1fr] lg:items-center">
         <div>
-          <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-paper/20 px-3 py-1 text-xs uppercase tracking-[0.2em] text-paper/80">
-            <span className="font-display">剣道</span> · seit 1980
+          <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-gold/40 px-3 py-1 text-xs uppercase tracking-[0.2em] text-paper/80">
+            <span className="font-display text-gold">剣道</span> · seit 1980
           </p>
           <h1 className="font-display text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
             {site.name}
@@ -34,7 +34,7 @@ export default function Hero() {
           <div className="mt-8 flex flex-wrap gap-3">
             <a
               href="#anfaengerkurs"
-              className="inline-flex items-center gap-2 rounded-full bg-crimson px-6 py-3 text-sm font-semibold text-paper transition-colors hover:bg-crimson-600"
+              className="inline-flex items-center gap-2 rounded-full bg-gold px-6 py-3 text-sm font-bold text-coal transition-colors hover:bg-gold-600"
             >
               Anfängerkurs entdecken
               <ArrowRightIcon className="h-4 w-4" />
@@ -58,7 +58,7 @@ export default function Hero() {
               key={item.label}
               className="rounded-2xl border border-paper/15 bg-paper/5 p-5"
             >
-              <div className="font-display text-3xl font-bold text-paper">
+              <div className="font-display text-3xl font-bold text-gold">
                 {item.stat}
               </div>
               <div className="mt-1 text-sm text-paper/75">{item.label}</div>

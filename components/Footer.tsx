@@ -4,13 +4,13 @@ import { FacebookIcon, InstagramIcon } from "./Icons";
 export default function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className="bg-navy text-paper">
+    <footer className="bg-coal text-paper">
       <div className="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:px-6 md:grid-cols-3">
         <div>
           <div className="flex items-center gap-3">
             <span
               aria-hidden
-              className="grid h-9 w-9 place-items-center rounded-full bg-paper/10 font-display text-lg text-paper"
+              className="grid h-9 w-9 place-items-center rounded-full bg-gold font-display text-lg text-coal"
             >
               剣
             </span>
@@ -57,7 +57,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
-              className="grid h-10 w-10 place-items-center rounded-full bg-paper/10 hover:bg-paper/20"
+              className="grid h-10 w-10 place-items-center rounded-full bg-paper/10 transition-colors hover:bg-gold hover:text-coal"
             >
               <InstagramIcon className="h-5 w-5" />
             </a>
@@ -66,7 +66,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook"
-              className="grid h-10 w-10 place-items-center rounded-full bg-paper/10 hover:bg-paper/20"
+              className="grid h-10 w-10 place-items-center rounded-full bg-paper/10 transition-colors hover:bg-gold hover:text-coal"
             >
               <FacebookIcon className="h-5 w-5" />
             </a>

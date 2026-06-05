@@ -37,11 +37,13 @@ npm run build    # Produktions-Build prüfen
 
 ### Farbschema
 
-Die Originalseite ließ sich aus der Build-Umgebung nicht auslesen, daher wird
-eine traditionelle Kendo-Palette verwendet: **Indigo/Navy** (kon-iro, die Farbe
-von Keikogi und Hakama) als Primärfarbe, **Karmesinrot** (die rote Kendo-Fahne)
-als Akzent, auf warmem „Washi"-Hintergrund. Zum Anpassen einfach die vier
-Werte unter `:root` in `app/globals.css` ändern.
+Münchner Schwarz & Gold: ein kräftiges Münchner Gold/Gelb als Akzent auf
+Schwarz, über weißem Hintergrund – angelehnt an die Farben der Stadt München.
+Zum Anpassen einfach die Werte unter `:root` in `app/globals.css` ändern.
+
+> Kontrast-Regel: Gold wird nur als **Fläche hinter schwarzem** Text/Icon oder
+> als Text/Icon **auf schwarzen Flächen** verwendet – nie als Text auf Weiß
+> (dort ist der Akzent Schwarz). So bleibt alles gut lesbar.
 
 ### Kalender verbinden
 

@@ -28,11 +28,11 @@ export default function Training() {
               className="rounded-2xl border border-line bg-paper p-6 shadow-sm"
             >
               <div className="flex items-center justify-between gap-3">
-                <h3 className="font-display text-lg font-semibold text-navy">
+                <h3 className="font-display text-lg font-semibold text-coal">
                   {g.group}
                 </h3>
                 {g.watchOnly && (
-                  <span className="rounded-full bg-crimson/10 px-3 py-1 text-xs font-semibold text-crimson">
+                  <span className="rounded-full bg-coal px-3 py-1 text-xs font-semibold text-gold">
                     Zuschauen
                   </span>
                 )}
@@ -43,7 +43,7 @@ export default function Training() {
                     key={s.day + s.time}
                     className="flex items-center gap-3 py-2.5"
                   >
-                    <ClockIcon className="h-5 w-5 shrink-0 text-crimson" />
+                    <ClockIcon className="h-5 w-5 shrink-0 text-coal" />
                     <span className="w-28 font-medium text-ink">{s.day}</span>
                     <span className="text-ink/75">{s.time}</span>
                   </li>
@@ -56,9 +56,9 @@ export default function Training() {
         {/* Location + map */}
         <div className="flex flex-col rounded-2xl border border-line bg-paper p-6 shadow-sm">
           <div className="flex items-start gap-3">
-            <PinIcon className="mt-0.5 h-6 w-6 shrink-0 text-crimson" />
+            <PinIcon className="mt-0.5 h-6 w-6 shrink-0 text-coal" />
             <div>
-              <h3 className="font-display text-lg font-semibold text-navy">
+              <h3 className="font-display text-lg font-semibold text-coal">
                 {location.name}
               </h3>
               <address className="mt-1 not-italic text-ink/80">
@@ -71,7 +71,7 @@ export default function Training() {
                 href={mapLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-crimson hover:text-crimson-600"
+                className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-coal underline decoration-2 decoration-gold underline-offset-4 hover:decoration-gold-600"
               >
                 Route planen <ArrowRightIcon className="h-4 w-4" />
               </a>

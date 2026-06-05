@@ -56,14 +56,14 @@ export default function Social() {
         {/* Facebook live timeline */}
         <div className="overflow-hidden rounded-2xl border border-line bg-paper shadow-sm">
           <div className="flex items-center justify-between border-b border-line px-5 py-4">
-            <span className="flex items-center gap-2 font-display text-lg font-semibold text-navy">
+            <span className="flex items-center gap-2 font-display text-lg font-semibold text-coal">
               <FacebookIcon className="h-6 w-6 text-[#1877f2]" /> Facebook
             </span>
             <a
               href={facebook.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-sm font-semibold text-crimson hover:text-crimson-600"
+              className="inline-flex items-center gap-1.5 text-sm font-semibold text-coal underline decoration-2 decoration-gold underline-offset-4 hover:decoration-gold-600"
             >
               Seite öffnen <ArrowRightIcon className="h-4 w-4" />
             </a>

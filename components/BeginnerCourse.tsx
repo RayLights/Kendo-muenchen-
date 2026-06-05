@@ -30,10 +30,10 @@ export default function BeginnerCourse() {
             key={s.title}
             className="relative rounded-2xl border border-line bg-paper p-6 shadow-sm"
           >
-            <span className="font-display text-4xl font-bold text-crimson/25">
+            <span className="font-display text-5xl font-bold text-gold">
               {String(i + 1).padStart(2, "0")}
             </span>
-            <h3 className="mt-1 font-display text-lg font-semibold text-navy">
+            <h3 className="mt-1 font-display text-lg font-semibold text-coal">
               {s.title}
             </h3>
             <p className="mt-2 text-sm leading-relaxed text-ink/75">{s.text}</p>
@@ -41,7 +41,7 @@ export default function BeginnerCourse() {
         ))}
       </ol>
 
-      <div className="mt-8 flex flex-col items-start gap-4 rounded-2xl bg-navy p-6 text-paper sm:flex-row sm:items-center sm:justify-between">
+      <div className="mt-8 flex flex-col items-start gap-4 rounded-2xl bg-coal p-6 text-paper sm:flex-row sm:items-center sm:justify-between">
         <p className="max-w-xl text-paper/90">
           Der nächste Kurs steht in den{" "}
           <a href="#termine" className="font-semibold underline underline-offset-4">
@@ -51,7 +51,7 @@ export default function BeginnerCourse() {
         </p>
         <a
           href="#kontakt"
-          className="inline-flex shrink-0 items-center gap-2 rounded-full bg-crimson px-6 py-3 text-sm font-semibold text-paper transition-colors hover:bg-crimson-600"
+          className="inline-flex shrink-0 items-center gap-2 rounded-full bg-gold px-6 py-3 text-sm font-bold text-coal transition-colors hover:bg-gold-600"
         >
           Kontakt aufnehmen <ArrowRightIcon className="h-4 w-4" />
         </a>

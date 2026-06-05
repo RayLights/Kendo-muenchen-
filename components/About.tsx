@@ -32,13 +32,13 @@ export default function About() {
         </div>
 
         <div className="rounded-2xl border border-line bg-paper p-6 shadow-sm">
-          <h3 className="font-display text-lg font-semibold text-navy">
+          <h3 className="font-display text-lg font-semibold text-coal">
             Mitglied in
           </h3>
           <ul className="mt-4 space-y-3">
             {site.affiliations.map((a) => (
               <li key={a.abbr} className="flex items-start gap-3">
-                <span className="mt-0.5 inline-flex min-w-14 justify-center rounded-md bg-navy px-2 py-1 text-xs font-semibold text-paper">
+                <span className="mt-0.5 inline-flex min-w-14 justify-center rounded-md bg-coal px-2 py-1 text-xs font-semibold text-gold">
                   {a.abbr}
                 </span>
                 <span className="text-sm text-ink/80">{a.name}</span>

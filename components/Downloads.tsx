@@ -28,12 +28,12 @@ export default function Downloads() {
         {items.map((d) => {
           const inner = (
             <>
-              <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-crimson/10 text-crimson">
+              <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-gold text-coal">
                 <DownloadIcon className="h-5 w-5" />
               </span>
               <span className="min-w-0">
                 <span className="flex items-center gap-2">
-                  <span className="font-display font-semibold text-navy">
+                  <span className="font-display font-semibold text-coal">
                     {d.title}
                   </span>
                   {!d.available && (
@@ -56,7 +56,7 @@ export default function Downloads() {
                   href={`/pdfs/${d.file}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-start gap-4 rounded-2xl border border-line bg-paper p-5 shadow-sm transition-colors hover:border-crimson/40 hover:bg-crimson/[0.03]"
+                  className="flex items-start gap-4 rounded-2xl border border-line bg-paper p-5 shadow-sm transition-colors hover:border-gold/40 hover:bg-gold/[0.03]"
                 >
                   {inner}
                 </a>

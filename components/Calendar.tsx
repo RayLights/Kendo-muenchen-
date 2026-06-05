@@ -27,7 +27,7 @@ export default function Calendar() {
           {calendarIcalUrl && (
             <a
               href={calendarIcalUrl}
-              className="inline-flex items-center gap-2 text-sm font-semibold text-crimson hover:text-crimson-600"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-coal underline decoration-2 decoration-gold underline-offset-4 hover:decoration-gold-600"
             >
               <CalendarIcon className="h-5 w-5" /> In eigenen Kalender abonnieren
             </a>
@@ -35,8 +35,8 @@ export default function Calendar() {
         </div>
       ) : (
         <div className="rounded-2xl border border-dashed border-line bg-paper p-10 text-center shadow-sm">
-          <CalendarIcon className="mx-auto h-10 w-10 text-crimson" />
-          <h3 className="mt-3 font-display text-lg font-semibold text-navy">
+          <CalendarIcon className="mx-auto h-10 w-10 text-coal" />
+          <h3 className="mt-3 font-display text-lg font-semibold text-coal">
             Kalender wird in Kürze verbunden
           </h3>
           <p className="mx-auto mt-2 max-w-md text-sm text-muted">
