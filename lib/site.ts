@@ -146,24 +146,41 @@ export const targets = [
 ] as const;
 
 /**
- * Beginner trainer, featured in the "Anfängertraining" section.
- * Drop a photo at public/images/team/<photo> to replace the avatar.
+ * Beginner trainers, featured in the "Anfängertraining" section.
+ * Drop a photo at public/images/team/<photo> to replace each avatar.
  */
-export const beginnerCoach = {
-  name: "Julia Jonentz",
-  role: "Anfängertrainerin",
-  grade: "1. Dan",
-  badge: "Deutscher Nationalkader",
-  bio:
-    "Julia leitet bei uns das Anfängertraining und bringt dir die ersten " +
-    "Schritte, Schläge und die Etikette des Kendo geduldig bei.",
-  achievements: [
-    "Mitglied im Deutschen Kendo-Nationalkader (seit 2024)",
-    "Teilnahme an der Kendo-Europameisterschaft 2025 in Leiden (NL)",
-    "„Kampfgeistpreis“ bei der Deutschen Kendo-Meisterschaft",
-  ],
-  photo: "julia-jonentz.jpg",
-} as const;
+export const beginnerCoaches = [
+  {
+    name: "Julia Jonentz",
+    role: "Anfängertrainerin",
+    grade: "2. Dan",
+    badge: "Deutscher Nationalkader",
+    bio:
+      "Julia leitet bei uns das Anfängertraining und bringt dir die ersten " +
+      "Schritte, Schläge und die Etikette des Kendo geduldig bei.",
+    achievements: [
+      "Mitglied im Deutschen Kendo-Nationalkader (seit 2024)",
+      "Teilnahme an der Kendo-Europameisterschaft 2025 in Leiden (NL)",
+      "„Kampfgeistpreis“ bei der Deutschen Kendo-Meisterschaft",
+    ],
+    photo: "julia-jonentz.jpg",
+  },
+  {
+    name: "Leo Wolff",
+    role: "Anfängertrainer",
+    grade: "4. Dan",
+    badge: "Deutscher Nationalkader",
+    bio:
+      "Leo unterstützt das Anfängertraining und gibt seine über zehnjährige " +
+      "Kendo-Erfahrung mit viel Geduld an Einsteiger weiter.",
+    achievements: [
+      "Über 10 Jahre Kendo-Erfahrung",
+      "Mitglied im Deutschen Kendo-Nationalkader (Europameisterschaft)",
+      "Landesmeisterschaft Baden: Silber im Einzel & im Team",
+    ],
+    photo: "leo-wolff.jpg",
+  },
+] as const;
 
 /**
  * Head trainers shown in the "Trainerteam" section.
@@ -174,7 +191,7 @@ export const trainers = [
     name: "Sascha Yokoo",
     role: "Trainer",
     grade: "7. Dan Kyoshi",
-    bio: "Einer der renommiertesten Kendo-Lehrer Deutschlands und prägende Figur des Münchner Kendo.",
+    bio: "Seit über 15 Jahren Trainer bei Kendo München und einer der renommiertesten Kendo-Lehrer Deutschlands.",
     achievements: [
       "Gefragter Lehrgangsleiter & Kampfrichter im Deutschen Kendobund",
       "Langjährige Trainer- und Wettkampferfahrung auf nationaler Ebene",
@@ -193,5 +210,33 @@ export const trainers = [
       "WM-Bronze im Team (2006 & 2012)",
     ],
     photo: "dance-yokoo.jpg",
+  },
+] as const;
+
+/** Frequently asked questions, shown as an accordion in the FAQ section. */
+export const faqs = [
+  {
+    q: "Brauche ich eigene Ausrüstung?",
+    a: "Nein. Für den Anfängerkurs wird die komplette Ausrüstung gestellt – du brauchst nur bequeme Sportkleidung und etwas zu trinken.",
+  },
+  {
+    q: "Ab welchem Alter kann ich mitmachen?",
+    a: "Jugendliche ab 16 Jahren und Erwachsene trainieren voll mit. Kinder und Jugendliche bis 15 Jahren können montags ab 18:00 Uhr zum Zuschauen vorbeikommen.",
+  },
+  {
+    q: "Wie fit muss ich sein?",
+    a: "Kendo ist für jedes Fitnesslevel geeignet. Du steigerst dich Schritt für Schritt – Technik und Geist sind mindestens so wichtig wie Kondition.",
+  },
+  {
+    q: "Wann startet der nächste Anfängerkurs?",
+    a: "Etwa alle sechs Monate – jeweils nach den Faschingsferien und nach den Sommerferien. Die genauen Termine findest du im Kalender und auf unseren Social-Media-Kanälen.",
+  },
+  {
+    q: "Muss ich gleich Mitglied werden?",
+    a: "Nein. Der Anfängerkurs ist als rund sechswöchige Probezeit angelegt. Erst danach entscheidest du, ob du dem Verein beitreten möchtest.",
+  },
+  {
+    q: "Wie werde ich Mitglied?",
+    a: "Nach der Probezeit ganz einfach über die Beitrittserklärung – das Formular findest du im Bereich Downloads.",
   },
 ] as const;

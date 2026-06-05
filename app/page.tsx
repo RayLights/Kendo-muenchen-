@@ -9,6 +9,7 @@ import BeginnerCourse from "@/components/BeginnerCourse";
 import Calendar from "@/components/Calendar";
 import Social from "@/components/Social";
 import Downloads from "@/components/Downloads";
+import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import { site } from "@/lib/site";
@@ -52,6 +53,7 @@ export default function Home() {
         <Calendar />
         <Social />
         <Downloads />
+        <FAQ />
         <Contact />
       </main>
       <Footer />

@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import Image from "next/image";
-import { beginnerCoach, trainers } from "@/lib/site";
+import { beginnerCoaches, trainers } from "@/lib/site";
 import Section from "./Section";
 
 /** True if a trainer photo exists at public/images/team/<file>. */
@@ -90,46 +90,55 @@ function AchievementList({
   );
 }
 
-/** Section 1 — beginner trainer (Julia Jonentz). */
+/** Section 1 — beginner trainers (Julia Jonentz & Leo Wolff). */
 export function BeginnerCoach() {
-  const c = beginnerCoach;
   return (
     <Section
       id="anfaengertraining"
       eyebrow="Anfängertraining"
-      title="Deine Trainerin für den Einstieg"
-      intro="Im Anfängerkurs lernst du von einer der erfahrensten Trainerinnen des Vereins."
+      title="Deine Trainer:innen für den Einstieg"
+      intro="Im Anfängerkurs lernst du von einigen der erfahrensten Trainer:innen des Vereins – beide mit Nationalkader-Erfahrung."
     >
-      <div className="grid items-center gap-8 rounded-3xl border border-line bg-paper p-6 shadow-sm sm:grid-cols-[auto_1fr] sm:p-8">
-        <Avatar
-          name={c.name}
-          photo={c.photo}
-          sizes="(max-width: 640px) 100vw, 224px"
-          className="mx-auto aspect-square w-48 rounded-2xl ring-4 ring-gold/20 sm:w-56"
-        />
-        <div>
-          <span className="inline-block bg-gold px-2.5 py-1 text-xs font-bold uppercase tracking-[0.16em] text-coal">
-            {c.badge}
-          </span>
-          <h3 className="mt-3 font-display text-2xl font-bold text-coal sm:text-3xl">
-            {c.name}
-          </h3>
-          <p className="mt-1 flex flex-wrap items-center gap-2 font-semibold text-muted">
-            {c.role}
-            <span className="rounded-full bg-coal px-2.5 py-0.5 text-xs font-bold text-gold">
-              {c.grade}
-            </span>
-          </p>
-          <p className="mt-4 max-w-2xl leading-relaxed text-ink/80">{c.bio}</p>
-          <AchievementList items={c.achievements} className="mt-4" />
-          <a
-            href="#anfaengerkurs"
-            className="mt-6 inline-flex items-center gap-2 rounded-full bg-coal px-5 py-2.5 text-sm font-bold text-gold transition-colors hover:bg-coal-700"
+      <div className="space-y-6">
+        {beginnerCoaches.map((c) => (
+          <div
+            key={c.name}
+            className="grid items-center gap-8 rounded-3xl border border-line bg-paper p-6 shadow-sm sm:grid-cols-[auto_1fr] sm:p-8"
           >
-            Zum Anfängerkurs
-          </a>
-        </div>
+            <Avatar
+              name={c.name}
+              photo={c.photo}
+              sizes="(max-width: 640px) 100vw, 224px"
+              className="mx-auto aspect-square w-48 rounded-2xl ring-4 ring-gold/20 sm:w-52"
+            />
+            <div>
+              <span className="inline-block bg-gold px-2.5 py-1 text-xs font-bold uppercase tracking-[0.16em] text-coal">
+                {c.badge}
+              </span>
+              <h3 className="mt-3 font-display text-2xl font-bold text-coal sm:text-3xl">
+                {c.name}
+              </h3>
+              <p className="mt-1 flex flex-wrap items-center gap-2 font-semibold text-muted">
+                {c.role}
+                <span className="rounded-full bg-coal px-2.5 py-0.5 text-xs font-bold text-gold">
+                  {c.grade}
+                </span>
+              </p>
+              <p className="mt-4 max-w-2xl leading-relaxed text-ink/80">
+                {c.bio}
+              </p>
+              <AchievementList items={c.achievements} className="mt-4" />
+            </div>
+          </div>
+        ))}
       </div>
+
+      <a
+        href="#anfaengerkurs"
+        className="mt-6 inline-flex items-center gap-2 rounded-full bg-coal px-5 py-2.5 text-sm font-bold text-gold transition-colors hover:bg-coal-700"
+      >
+        Zum Anfängerkurs
+      </a>
     </Section>
   );
 }

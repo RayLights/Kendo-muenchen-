@@ -6,7 +6,8 @@ Lege hier die Portraitfotos der Trainer:innen ab – sie ersetzen dann
 | Person          | Dateiname (genau so)   |
 | --------------- | ---------------------- |
 | Julia Jonentz   | `julia-jonentz.jpg`    |
-| Sascha          | `sascha.jpg`           |
+| Leo Wolff       | `leo-wolff.jpg`        |
+| Sascha Yokoo    | `sascha.jpg`           |
 | Dance Yokoo     | `dance-yokoo.jpg`      |
 
 - Am besten **quadratisch** zuschneiden (Portrait), mind. 600 × 600 px

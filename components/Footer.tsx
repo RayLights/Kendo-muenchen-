@@ -37,8 +37,18 @@ export default function Footer() {
               </a>
             </li>
             <li>
+              <a href="#trainer" className="hover:text-paper">
+                Trainer
+              </a>
+            </li>
+            <li>
               <a href="#anfaengerkurs" className="hover:text-paper">
                 Anfängerkurs
+              </a>
+            </li>
+            <li>
+              <a href="#faq" className="hover:text-paper">
+                FAQ
               </a>
             </li>
             <li>

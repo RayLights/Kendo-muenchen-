@@ -86,5 +86,8 @@ npm run fetch-pdfs
 - [ ] **Google-Kalender-URL** in `lib/site.ts` eintragen.
 - [ ] **Kontakt-E-Mail** in `lib/site.ts` prüfen/ersetzen.
 - [ ] **Impressum & Datenschutz** mit echten Angaben vervollständigen.
-- [ ] **Farbschema** ggf. an das Vereins-Branding anpassen.
+- [ ] **Trainer-Fotos** nach `public/images/team/` legen (Julia, Leo, Sascha,
+      Dance – Dateinamen siehe `public/images/team/README.md`).
+- [ ] **Trainer-Bios/Erfolge gegenlesen** – die Angaben stammen aus
+      Online-Recherche und sollten vom Verein bestätigt werden.
 - [ ] **Vercel-Deployment & DNS** einrichten (Zertifikat).
