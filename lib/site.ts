@@ -118,3 +118,29 @@ export const downloads = [
 ] as const;
 
 export type Download = (typeof downloads)[number];
+
+/**
+ * Kendo vocabulary shown in the "Begriffe" section. `kanji` is rendered large,
+ * `romaji` is the transliteration, `de` the German meaning.
+ */
+export const glossary = [
+  { kanji: "剣道", romaji: "Kendō", de: "Weg des Schwertes – die Kampfkunst selbst" },
+  { kanji: "礼", romaji: "Rei", de: "Respekt & Gruß – Kendo beginnt und endet damit" },
+  { kanji: "稽古", romaji: "Keiko", de: "Training, gemeinsames Üben" },
+  { kanji: "道場", romaji: "Dōjō", de: "Trainingshalle – der Ort des Weges" },
+  { kanji: "竹刀", romaji: "Shinai", de: "Schwert aus Bambus" },
+  { kanji: "防具", romaji: "Bōgu", de: "Schutzausrüstung / Rüstung" },
+  { kanji: "気剣体一致", romaji: "Ki-Ken-Tai", de: "Einklang von Geist, Schwert und Körper" },
+  { kanji: "残心", romaji: "Zanshin", de: "Wache Achtsamkeit nach dem Schlag" },
+] as const;
+
+/**
+ * Valid striking targets (datotsu-bu) used in the illustrated "Trefferflächen"
+ * panel of the Begriffe section.
+ */
+export const targets = [
+  { kanji: "面", romaji: "Men", de: "Schlag auf den Kopf / die Maske" },
+  { kanji: "小手", romaji: "Kote", de: "Schlag auf das Handgelenk" },
+  { kanji: "胴", romaji: "Dō", de: "Schlag auf den Rumpf / die Flanke" },
+  { kanji: "突き", romaji: "Tsuki", de: "Stoß zur Kehle (Fortgeschrittene)" },
+] as const;

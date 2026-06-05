@@ -1,6 +1,8 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
+import Glossary from "@/components/Glossary";
+import Gallery from "@/components/Gallery";
 import Training from "@/components/Training";
 import BeginnerCourse from "@/components/BeginnerCourse";
 import Calendar from "@/components/Calendar";
@@ -40,6 +42,8 @@ export default function Home() {
       <main>
         <Hero />
         <About />
+        <Glossary />
+        <Gallery />
         <Training />
         <BeginnerCourse />
         <Calendar />

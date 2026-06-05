@@ -11,6 +11,8 @@ import {
 
 const navLinks = [
   { href: "#ueber-uns", label: "Über uns" },
+  { href: "#begriffe", label: "Begriffe" },
+  { href: "#galerie", label: "Galerie" },
   { href: "#training", label: "Training" },
   { href: "#anfaengerkurs", label: "Anfängerkurs" },
   { href: "#termine", label: "Termine" },
@@ -42,7 +44,7 @@ export default function Header() {
         </a>
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-7 md:flex">
+        <nav className="hidden items-center gap-5 lg:flex xl:gap-6">
           {navLinks.map((l) => (
             <a
               key={l.href}
@@ -78,7 +80,7 @@ export default function Header() {
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="text-coal md:hidden"
+          className="text-coal lg:hidden"
           aria-label={open ? "Menü schließen" : "Menü öffnen"}
           aria-expanded={open}
         >
@@ -92,7 +94,7 @@ export default function Header() {
 
       {/* Mobile nav */}
       {open && (
-        <nav className="border-t border-line bg-paper md:hidden">
+        <nav className="border-t border-line bg-paper lg:hidden">
           <ul className="mx-auto max-w-6xl px-4 py-3 sm:px-6">
             {navLinks.map((l) => (
               <li key={l.href}>
