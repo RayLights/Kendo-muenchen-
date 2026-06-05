@@ -144,3 +144,39 @@ export const targets = [
   { kanji: "胴", romaji: "Dō", de: "Schlag auf den Rumpf / die Flanke" },
   { kanji: "突き", romaji: "Tsuki", de: "Stoß zur Kehle (Fortgeschrittene)" },
 ] as const;
+
+/**
+ * Beginner trainer, featured in the "Anfängertraining" section.
+ * Drop a photo at public/images/team/<photo> to replace the avatar.
+ */
+export const beginnerCoach = {
+  name: "Julia Jonentz",
+  role: "Anfängertrainerin",
+  badge: "Deutsches Nationalteam",
+  bio:
+    "Julia war mehrfach Teil des Deutschen Kendo-Nationalteams und leitet bei " +
+    "uns das Anfängertraining. Sie bringt dir die ersten Schritte, Schläge und " +
+    "die Etikette des Kendo geduldig und mit viel Erfahrung bei.",
+  photo: "julia-jonentz.jpg",
+} as const;
+
+/**
+ * Head trainers shown in the "Trainerteam" section. `dan` is optional – leave
+ * it empty until confirmed. Photos go to public/images/team/<photo>.
+ */
+export const trainers = [
+  {
+    name: "Sascha",
+    role: "Trainer",
+    dan: "",
+    bio: "Bekannte Größe der deutschen Kendo-Szene mit langjähriger Erfahrung im Training und Wettkampf.",
+    photo: "sascha.jpg",
+  },
+  {
+    name: "Dance Yokoo",
+    role: "Trainer",
+    dan: "",
+    bio: "Bekannte Größe der deutschen Kendo-Szene und prägende Figur des Münchner Kendo.",
+    photo: "dance-yokoo.jpg",
+  },
+] as const;

@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Glossary from "@/components/Glossary";
 import Gallery from "@/components/Gallery";
+import { BeginnerCoach, Trainers } from "@/components/Team";
 import Training from "@/components/Training";
 import BeginnerCourse from "@/components/BeginnerCourse";
 import Calendar from "@/components/Calendar";
@@ -44,7 +45,9 @@ export default function Home() {
         <About />
         <Glossary />
         <Gallery />
+        <Trainers />
         <Training />
+        <BeginnerCoach />
         <BeginnerCourse />
         <Calendar />
         <Social />
