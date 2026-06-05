@@ -152,31 +152,46 @@ export const targets = [
 export const beginnerCoach = {
   name: "Julia Jonentz",
   role: "Anfängertrainerin",
-  badge: "Deutsches Nationalteam",
+  grade: "1. Dan",
+  badge: "Deutscher Nationalkader",
   bio:
-    "Julia war mehrfach Teil des Deutschen Kendo-Nationalteams und leitet bei " +
-    "uns das Anfängertraining. Sie bringt dir die ersten Schritte, Schläge und " +
-    "die Etikette des Kendo geduldig und mit viel Erfahrung bei.",
+    "Julia leitet bei uns das Anfängertraining und bringt dir die ersten " +
+    "Schritte, Schläge und die Etikette des Kendo geduldig bei.",
+  achievements: [
+    "Mitglied im Deutschen Kendo-Nationalkader (seit 2024)",
+    "Teilnahme an der Kendo-Europameisterschaft 2025 in Leiden (NL)",
+    "„Kampfgeistpreis“ bei der Deutschen Kendo-Meisterschaft",
+  ],
   photo: "julia-jonentz.jpg",
 } as const;
 
 /**
- * Head trainers shown in the "Trainerteam" section. `dan` is optional – leave
- * it empty until confirmed. Photos go to public/images/team/<photo>.
+ * Head trainers shown in the "Trainerteam" section.
+ * Photos go to public/images/team/<photo>.
  */
 export const trainers = [
   {
-    name: "Sascha",
+    name: "Sascha Yokoo",
     role: "Trainer",
-    dan: "",
-    bio: "Bekannte Größe der deutschen Kendo-Szene mit langjähriger Erfahrung im Training und Wettkampf.",
+    grade: "7. Dan Kyoshi",
+    bio: "Einer der renommiertesten Kendo-Lehrer Deutschlands und prägende Figur des Münchner Kendo.",
+    achievements: [
+      "Gefragter Lehrgangsleiter & Kampfrichter im Deutschen Kendobund",
+      "Langjährige Trainer- und Wettkampferfahrung auf nationaler Ebene",
+    ],
     photo: "sascha.jpg",
   },
   {
     name: "Dance Yokoo",
-    role: "Trainer",
-    dan: "",
-    bio: "Bekannte Größe der deutschen Kendo-Szene und prägende Figur des Münchner Kendo.",
+    role: "Trainerin",
+    grade: "7. Dan Kyoshi",
+    bio: "Seit über 15 Jahren Trainerin bei Kendo München und langjähriges Mitglied des Deutschen Damen-Nationalteams (2003–2013).",
+    achievements: [
+      "Mehrfache Deutsche Einzelmeisterin (u. a. 2003, 2005, 2009)",
+      "Mehrfache Bayerische Einzelmeisterin (u. a. 2007, 2008, 2010)",
+      "EM-Gold mit dem Damen-Team (u. a. 2005, 2007, 2008, 2011, 2013)",
+      "WM-Bronze im Team (2006 & 2012)",
+    ],
     photo: "dance-yokoo.jpg",
   },
 ] as const;
