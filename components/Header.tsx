@@ -2,27 +2,57 @@
 
 import { useState } from "react";
 import { site } from "@/lib/site";
-import {
-  CloseIcon,
-  FacebookIcon,
-  InstagramIcon,
-  MenuIcon,
-} from "./Icons";
+import type { Content } from "@/lib/content";
+import { locales, localeNames, type Locale } from "@/lib/i18n";
+import { CloseIcon, FacebookIcon, InstagramIcon, MenuIcon } from "./Icons";
 
-const navLinks = [
-  { href: "#ueber-uns", label: "Über uns" },
-  { href: "#begriffe", label: "Begriffe" },
-  { href: "#galerie", label: "Galerie" },
-  { href: "#trainer", label: "Trainer" },
-  { href: "#training", label: "Training" },
-  { href: "#anfaengerkurs", label: "Anfängerkurs" },
-  { href: "#termine", label: "Termine" },
-  { href: "#downloads", label: "Downloads" },
-  { href: "#kontakt", label: "Kontakt" },
-];
-
-export default function Header() {
+export default function Header({ c, locale }: { c: Content; locale: Locale }) {
   const [open, setOpen] = useState(false);
+
+  const navLinks = [
+    { href: "#ueber-uns", label: c.nav.ueberUns },
+    { href: "#begriffe", label: c.nav.begriffe },
+    { href: "#galerie", label: c.nav.galerie },
+    { href: "#trainer", label: c.nav.trainer },
+    { href: "#training", label: c.nav.training },
+    { href: "#anfaengerkurs", label: c.nav.anfaengerkurs },
+    { href: "#termine", label: c.nav.termine },
+    { href: "#downloads", label: c.nav.downloads },
+    { href: "#kontakt", label: c.nav.kontakt },
+  ];
+
+  const LanguageSwitcher = () => (
+    <details className="group relative">
+      <summary className="flex cursor-pointer list-none items-center gap-1 text-sm font-semibold text-coal">
+        {localeNames[locale]}
+        <svg
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2.2"
+          className="transition-transform group-open:rotate-180"
+        >
+          <path d="m6 9 6 6 6-6" />
+        </svg>
+      </summary>
+      <ul className="absolute right-0 z-50 mt-2 w-36 overflow-hidden rounded-xl border border-line bg-paper py-1 shadow-lg">
+        {locales.map((l) => (
+          <li key={l}>
+            <a
+              href={`/${l}`}
+              className={`block px-4 py-2 text-sm hover:bg-gold/10 ${
+                l === locale ? "font-bold text-coal" : "text-ink/80"
+              }`}
+            >
+              {localeNames[l]}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </details>
+  );
 
   return (
     <header className="sticky top-0 z-50 border-b border-line/80 bg-paper/90 backdrop-blur supports-[backdrop-filter]:bg-paper/75">
@@ -39,13 +69,13 @@ export default function Header() {
               {site.name}
             </span>
             <span className="block text-[11px] uppercase tracking-[0.18em] text-muted">
-              {site.tagline}
+              {c.tagline}
             </span>
           </span>
         </a>
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-4 xl:flex 2xl:gap-6">
+        <nav className="hidden items-center gap-4 xl:flex 2xl:gap-5">
           {navLinks.map((l) => (
             <a
               key={l.href}
@@ -55,7 +85,7 @@ export default function Header() {
               {l.label}
             </a>
           ))}
-          <div className="flex items-center gap-3 border-l border-line pl-5">
+          <div className="flex items-center gap-3 border-l border-line pl-4">
             <a
               href={site.social.instagram.url}
               target="_blank"
@@ -74,6 +104,7 @@ export default function Header() {
             >
               <FacebookIcon className="h-5 w-5" />
             </a>
+            <LanguageSwitcher />
           </div>
         </nav>
 
@@ -82,14 +113,10 @@ export default function Header() {
           type="button"
           onClick={() => setOpen((v) => !v)}
           className="text-coal xl:hidden"
-          aria-label={open ? "Menü schließen" : "Menü öffnen"}
+          aria-label={open ? c.nav.menuClose : c.nav.menuOpen}
           aria-expanded={open}
         >
-          {open ? (
-            <CloseIcon className="h-6 w-6" />
-          ) : (
-            <MenuIcon className="h-6 w-6" />
-          )}
+          {open ? <CloseIcon className="h-6 w-6" /> : <MenuIcon className="h-6 w-6" />}
         </button>
       </div>
 
@@ -125,6 +152,22 @@ export default function Header() {
               >
                 <FacebookIcon className="h-5 w-5" /> Facebook
               </a>
+            </li>
+            <li className="mt-3 flex items-center gap-3 border-t border-line pt-3">
+              <span className="text-sm font-semibold text-muted">
+                {c.nav.language}:
+              </span>
+              {locales.map((l) => (
+                <a
+                  key={l}
+                  href={`/${l}`}
+                  className={`text-sm ${
+                    l === locale ? "font-bold text-coal" : "text-ink/70"
+                  }`}
+                >
+                  {localeNames[l]}
+                </a>
+              ))}
             </li>
           </ul>
         </nav>

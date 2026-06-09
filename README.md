@@ -29,11 +29,23 @@ npm run build    # Produktions-Build prüfen
 
 | Was                                   | Wo                          |
 | ------------------------------------- | --------------------------- |
-| Texte, Adresse, E-Mail, Social-Links  | `lib/site.ts`               |
-| Trainingszeiten                       | `lib/site.ts` (`trainingGroups`) |
-| Download-Liste                        | `lib/site.ts` (`downloads`) |
+| **Alle Texte & Inhalte (DE/EN/JA)**   | `lib/content/de.ts`, `en.ts`, `ja.ts` |
+| Trainer, Begriffe, FAQ, Downloads-Liste | `lib/content/*.ts`        |
+| Adresse, E-Mail, Social-Links, Kalender | `lib/site.ts`             |
 | **Farbschema**                        | `app/globals.css` (`:root`) |
 | PDF-Dateien                           | `public/pdfs/`              |
+| Bilder / Trainer-Fotos                | `public/images/` · `public/images/team/` |
+
+### Sprachen (Deutsch / English / 日本語)
+
+Die Seite ist dreisprachig unter `/de`, `/en`, `/ja`; ein Aufruf von `/` leitet
+auf `/de`. Der Sprachumschalter sitzt oben rechts im Menü. Die Inhalte liegen je
+Sprache in `lib/content/de.ts` (Quelle), `en.ts` und `ja.ts` – alle drei haben
+**dieselbe Struktur** (per TypeScript erzwungen). Zum Ändern eines Textes die
+entsprechende Stelle in allen drei Dateien anpassen.
+
+> ⚠️ Die **japanischen** Texte sind eine erste Übersetzung und sollten vor dem
+> Liveschalten von einer japanischsprachigen Person gegengelesen werden.
 
 ### Farbschema
 

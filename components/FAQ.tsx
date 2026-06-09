@@ -1,16 +1,11 @@
-import { faqs } from "@/lib/site";
+import type { Content } from "@/lib/content";
 import Section from "./Section";
 
-export default function FAQ() {
+export default function FAQ({ c }: { c: Content["faq"] }) {
   return (
-    <Section
-      id="faq"
-      eyebrow="FAQ"
-      title="Häufige Fragen"
-      intro="Das Wichtigste für deinen Einstieg ins Kendo – kompakt beantwortet."
-    >
+    <Section id="faq" eyebrow={c.eyebrow} title={c.title} intro={c.intro}>
       <div className="mx-auto max-w-3xl divide-y divide-line overflow-hidden rounded-2xl border border-line bg-paper shadow-sm">
-        {faqs.map((f) => (
+        {c.items.map((f) => (
           <details key={f.q} className="group">
             <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-5 font-display font-semibold text-coal transition-colors hover:bg-gold/[0.06]">
               {f.q}

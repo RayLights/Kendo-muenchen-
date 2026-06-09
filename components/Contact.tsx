@@ -1,21 +1,12 @@
 import { site } from "@/lib/site";
+import type { Content } from "@/lib/content";
 import Section from "./Section";
-import {
-  FacebookIcon,
-  InstagramIcon,
-  MailIcon,
-  PinIcon,
-} from "./Icons";
+import { FacebookIcon, InstagramIcon, MailIcon, PinIcon } from "./Icons";
 
-export default function Contact() {
+export default function Contact({ c }: { c: Content["contact"] }) {
   const { location } = site;
   return (
-    <Section
-      id="kontakt"
-      eyebrow="Kontakt"
-      title="Schreib uns"
-      intro="Fragen zum Anfängerkurs, zum Training oder zur Mitgliedschaft? Wir freuen uns über deine Nachricht."
-    >
+    <Section id="kontakt" eyebrow={c.eyebrow} title={c.title} intro={c.intro}>
       <div className="grid gap-6 md:grid-cols-3">
         <a
           href={`mailto:${site.email}`}
@@ -24,7 +15,7 @@ export default function Contact() {
           <MailIcon className="h-6 w-6 shrink-0 text-coal" />
           <span>
             <span className="block font-display font-semibold text-coal">
-              E-Mail
+              {c.emailLabel}
             </span>
             <span className="mt-0.5 block break-all text-sm text-ink/75">
               {site.email}
@@ -36,12 +27,12 @@ export default function Contact() {
           <PinIcon className="h-6 w-6 shrink-0 text-coal" />
           <span>
             <span className="block font-display font-semibold text-coal">
-              Training
+              {c.trainingLabel}
             </span>
             <span className="mt-0.5 block text-sm text-ink/75">
-              {location.name}
+              {location.street}
               <br />
-              {location.street}, {location.zip} {location.city}
+              {location.zip} München
             </span>
           </span>
         </div>
@@ -52,7 +43,7 @@ export default function Contact() {
           </span>
           <span>
             <span className="block font-display font-semibold text-coal">
-              Social Media
+              {c.socialLabel}
             </span>
             <span className="mt-1 flex flex-col gap-1.5 text-sm">
               <a
@@ -61,8 +52,7 @@ export default function Contact() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-ink/75 hover:text-coal"
               >
-                <InstagramIcon className="h-4 w-4" />{" "}
-                {site.social.instagram.handle}
+                <InstagramIcon className="h-4 w-4" /> {site.social.instagram.handle}
               </a>
               <a
                 href={site.social.facebook.url}

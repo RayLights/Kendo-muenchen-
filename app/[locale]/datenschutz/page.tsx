@@ -4,11 +4,16 @@ import { site } from "@/lib/site";
 
 export const metadata: Metadata = { title: "Datenschutzerklärung" };
 
-export default function Datenschutz() {
+export default async function Datenschutz({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
   return (
     <main className="mx-auto max-w-3xl px-4 py-16 sm:px-6">
       <Link
-        href="/"
+        href={`/${locale}`}
         className="text-sm font-semibold text-coal underline decoration-2 decoration-gold underline-offset-4 hover:decoration-gold-600"
       >
         ← Zur Startseite

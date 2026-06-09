@@ -1,10 +1,10 @@
 import fs from "node:fs";
 import path from "node:path";
 import Image from "next/image";
-import { beginnerCoaches, trainers } from "@/lib/site";
+import type { Content } from "@/lib/content";
+import type { Person } from "@/lib/content/types";
 import Section from "./Section";
 
-/** True if a trainer photo exists at public/images/team/<file>. */
 function hasTeamPhoto(file: string): boolean {
   try {
     return fs.existsSync(
@@ -24,7 +24,6 @@ function initials(name: string): string {
     .toUpperCase();
 }
 
-/** Photo if present, otherwise an on-brand initials avatar (coal + gold). */
 function Avatar({
   name,
   photo,
@@ -66,7 +65,6 @@ function Avatar({
   );
 }
 
-/** Bulleted list of achievements with gold markers. */
 function AchievementList({
   items,
   className = "",
@@ -90,44 +88,46 @@ function AchievementList({
   );
 }
 
-/** Section 1 — beginner trainers (Julia Jonentz & Leo Wolff). */
-export function BeginnerCoach() {
+/** Section 1 — beginner trainers. */
+export function BeginnerCoach({ c }: { c: Content["beginnerCoach"] }) {
   return (
     <Section
       id="anfaengertraining"
-      eyebrow="Anfängertraining"
-      title="Deine Trainer:innen für den Einstieg"
-      intro="Im Anfängerkurs lernst du von einigen der erfahrensten Trainer:innen des Vereins – beide mit Nationalkader-Erfahrung."
+      eyebrow={c.eyebrow}
+      title={c.title}
+      intro={c.intro}
     >
       <div className="space-y-6">
-        {beginnerCoaches.map((c) => (
+        {c.coaches.map((coach: Person) => (
           <div
-            key={c.name}
+            key={coach.name}
             className="grid items-center gap-8 rounded-3xl border border-line bg-paper p-6 shadow-sm sm:grid-cols-[auto_1fr] sm:p-8"
           >
             <Avatar
-              name={c.name}
-              photo={c.photo}
+              name={coach.name}
+              photo={coach.photo}
               sizes="(max-width: 640px) 100vw, 224px"
               className="mx-auto aspect-square w-48 rounded-2xl ring-4 ring-gold/20 sm:w-52"
             />
             <div>
-              <span className="inline-block bg-gold px-2.5 py-1 text-xs font-bold uppercase tracking-[0.16em] text-coal">
-                {c.badge}
-              </span>
+              {coach.badge && (
+                <span className="inline-block bg-gold px-2.5 py-1 text-xs font-bold uppercase tracking-[0.16em] text-coal">
+                  {coach.badge}
+                </span>
+              )}
               <h3 className="mt-3 font-display text-2xl font-bold text-coal sm:text-3xl">
-                {c.name}
+                {coach.name}
               </h3>
               <p className="mt-1 flex flex-wrap items-center gap-2 font-semibold text-muted">
-                {c.role}
+                {coach.role}
                 <span className="rounded-full bg-coal px-2.5 py-0.5 text-xs font-bold text-gold">
-                  {c.grade}
+                  {coach.grade}
                 </span>
               </p>
               <p className="mt-4 max-w-2xl leading-relaxed text-ink/80">
-                {c.bio}
+                {coach.bio}
               </p>
-              <AchievementList items={c.achievements} className="mt-4" />
+              <AchievementList items={coach.achievements} className="mt-4" />
             </div>
           </div>
         ))}
@@ -137,24 +137,24 @@ export function BeginnerCoach() {
         href="#anfaengerkurs"
         className="mt-6 inline-flex items-center gap-2 rounded-full bg-coal px-5 py-2.5 text-sm font-bold text-gold transition-colors hover:bg-coal-700"
       >
-        Zum Anfängerkurs
+        {c.cta}
       </a>
     </Section>
   );
 }
 
-/** Section 2 — head trainers (Sascha & Dance Yokoo). */
-export function Trainers() {
+/** Section 2 — head trainers. */
+export function Trainers({ c }: { c: Content["trainers"] }) {
   return (
     <Section
       id="trainer"
       tone="tint"
-      eyebrow="Trainerteam"
-      title="Unsere Trainer"
-      intro="Bekannte Größen der deutschen Kendo-Szene – sie bringen jahrzehntelange Erfahrung in jedes Training ein."
+      eyebrow={c.eyebrow}
+      title={c.title}
+      intro={c.intro}
     >
       <ul className="grid gap-6 sm:grid-cols-2">
-        {trainers.map((t) => (
+        {c.list.map((t: Person) => (
           <li
             key={t.name}
             className="flex flex-col gap-5 rounded-2xl border border-line bg-paper p-5 shadow-sm transition-colors hover:border-gold sm:flex-row sm:p-6"

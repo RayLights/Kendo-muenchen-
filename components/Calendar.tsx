@@ -1,23 +1,24 @@
 import { site } from "@/lib/site";
+import type { Content } from "@/lib/content";
 import Section from "./Section";
 import { CalendarIcon } from "./Icons";
 
-export default function Calendar() {
+export default function Calendar({ c }: { c: Content["calendar"] }) {
   const { calendarEmbedUrl, calendarIcalUrl } = site;
 
   return (
     <Section
       id="termine"
       tone="tint"
-      eyebrow="Termine"
-      title="Kalender"
-      intro="Trainingstermine, Anfängerkurse, Lehrgänge und Turniere – immer aktuell aus unserem Vereinskalender."
+      eyebrow={c.eyebrow}
+      title={c.title}
+      intro={c.intro}
     >
       {calendarEmbedUrl ? (
         <div className="space-y-4">
           <div className="overflow-hidden rounded-2xl border border-line bg-paper shadow-sm">
             <iframe
-              title="Vereinskalender Kendo München"
+              title={c.title}
               src={calendarEmbedUrl}
               className="h-[36rem] w-full"
               loading="lazy"
@@ -29,7 +30,7 @@ export default function Calendar() {
               href={calendarIcalUrl}
               className="inline-flex items-center gap-2 text-sm font-semibold text-coal underline decoration-2 decoration-gold underline-offset-4 hover:decoration-gold-600"
             >
-              <CalendarIcon className="h-5 w-5" /> In eigenen Kalender abonnieren
+              <CalendarIcon className="h-5 w-5" /> {c.icalLink}
             </a>
           )}
         </div>
@@ -37,19 +38,11 @@ export default function Calendar() {
         <div className="rounded-2xl border border-dashed border-line bg-paper p-10 text-center shadow-sm">
           <CalendarIcon className="mx-auto h-10 w-10 text-coal" />
           <h3 className="mt-3 font-display text-lg font-semibold text-coal">
-            Kalender wird in Kürze verbunden
+            {c.placeholderTitle}
           </h3>
           <p className="mx-auto mt-2 max-w-md text-sm text-muted">
-            Sobald der öffentliche Google-Kalender hinterlegt ist, erscheinen
-            hier automatisch alle Vereinstermine. Bis dahin findest du aktuelle
-            Termine auf unseren Social-Media-Kanälen.
+            {c.placeholderText}
           </p>
-          {/*
-            So verbinden: In Google Kalender → Einstellungen → Kalender
-            auswählen → "Kalender integrieren" → den src-Wert aus dem
-            iframe-Code kopieren und in lib/site.ts als `calendarEmbedUrl`
-            eintragen.
-          */}
         </div>
       )}
     </Section>

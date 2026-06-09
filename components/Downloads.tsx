@@ -1,10 +1,9 @@
 import fs from "node:fs";
 import path from "node:path";
-import { downloads } from "@/lib/site";
+import type { Content } from "@/lib/content";
 import Section from "./Section";
 import { DownloadIcon } from "./Icons";
 
-/** True if a matching PDF has been dropped into public/pdfs/. */
 function pdfExists(file: string) {
   try {
     return fs.existsSync(path.join(process.cwd(), "public", "pdfs", file));
@@ -13,16 +12,16 @@ function pdfExists(file: string) {
   }
 }
 
-export default function Downloads() {
-  const items = downloads.map((d) => ({ ...d, available: pdfExists(d.file) }));
+export default function Downloads({ c }: { c: Content["downloads"] }) {
+  const items = c.items.map((d) => ({ ...d, available: pdfExists(d.file) }));
 
   return (
     <Section
       id="downloads"
       tone="tint"
-      eyebrow="Downloads"
-      title="Formulare & Dokumente"
-      intro="Satzung, Beitrittserklärung und alle Anträge zum Herunterladen – aus dem Aktenordner des Vereins."
+      eyebrow={c.eyebrow}
+      title={c.title}
+      intro={c.intro}
     >
       <ul className="grid gap-4 sm:grid-cols-2">
         {items.map((d) => {
@@ -38,7 +37,7 @@ export default function Downloads() {
                   </span>
                   {!d.available && (
                     <span className="rounded-full bg-line px-2 py-0.5 text-[11px] font-semibold text-muted">
-                      folgt
+                      {c.soon}
                     </span>
                   )}
                 </span>
@@ -64,7 +63,6 @@ export default function Downloads() {
                 <div
                   className="flex cursor-default items-start gap-4 rounded-2xl border border-dashed border-line bg-paper/60 p-5 opacity-80"
                   aria-disabled
-                  title="Dokument wird in Kürze ergänzt"
                 >
                   {inner}
                 </div>

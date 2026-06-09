@@ -2,13 +2,14 @@ import fs from "node:fs";
 import path from "node:path";
 import Image from "next/image";
 import { site } from "@/lib/site";
+import type { Content } from "@/lib/content";
 import Section from "./Section";
 import { Enso, Men, Shinai } from "./KendoArt";
 import { ArrowRightIcon, InstagramIcon } from "./Icons";
 
 const EXTS = new Set([".jpg", ".jpeg", ".png", ".webp", ".avif"]);
+const ART = [Men, Shinai, Enso];
 
-/** Photos dropped into public/images/ (sorted) are shown automatically. */
 function readPhotos(): string[] {
   try {
     return fs
@@ -20,22 +21,16 @@ function readPhotos(): string[] {
   }
 }
 
-const artTiles = [
-  { Art: Men, caption: "Bōgu – die Rüstung" },
-  { Art: Shinai, caption: "Shinai – das Bambusschwert" },
-  { Art: Enso, caption: "Ensō – der Weg ist das Ziel" },
-];
-
-export default function Gallery() {
+export default function Gallery({ c }: { c: Content["gallery"] }) {
   const photos = readPhotos();
 
   return (
     <Section
       id="galerie"
       tone="tint"
-      eyebrow="Galerie"
-      title="Einblicke ins Kendo"
-      intro="Eindrücke aus Training, Lehrgängen und Wettkämpfen. Die aktuellsten Bilder findest du immer auf unserem Instagram-Kanal."
+      eyebrow={c.eyebrow}
+      title={c.title}
+      intro={c.intro}
     >
       {photos.length > 0 ? (
         <ul className="grid grid-cols-2 gap-4 md:grid-cols-3">
@@ -46,7 +41,7 @@ export default function Gallery() {
             >
               <Image
                 src={`/images/${file}`}
-                alt="Kendo München"
+                alt={site.name}
                 fill
                 sizes="(max-width: 768px) 50vw, 33vw"
                 className="object-cover"
@@ -56,21 +51,23 @@ export default function Gallery() {
         </ul>
       ) : (
         <ul className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-          {artTiles.map(({ Art, caption }) => (
-            <li
-              key={caption}
-              className="group flex aspect-[4/5] flex-col items-center justify-center gap-6 rounded-2xl bg-coal p-6 text-center shadow-sm"
-            >
-              <Art className="h-28 w-auto text-gold transition-transform duration-300 group-hover:scale-105" />
-              <span className="text-sm font-medium text-paper/80">
-                {caption}
-              </span>
-            </li>
-          ))}
+          {c.tiles.map((tile, i) => {
+            const Art = ART[i] ?? Men;
+            return (
+              <li
+                key={tile.caption}
+                className="group flex aspect-[4/5] flex-col items-center justify-center gap-6 rounded-2xl bg-coal p-6 text-center shadow-sm"
+              >
+                <Art className="h-28 w-auto text-gold transition-transform duration-300 group-hover:scale-105" />
+                <span className="text-sm font-medium text-paper/80">
+                  {tile.caption}
+                </span>
+              </li>
+            );
+          })}
         </ul>
       )}
 
-      {/* Instagram call-to-action */}
       <a
         href={site.social.instagram.url}
         target="_blank"
@@ -85,13 +82,13 @@ export default function Gallery() {
           <InstagramIcon className="h-8 w-8" />
           <span>
             <span className="block font-display text-lg font-bold">
-              Mehr Fotos & Videos auf Instagram
+              {c.igTitle}
             </span>
             <span className="text-white/85">{site.social.instagram.handle}</span>
           </span>
         </span>
         <span className="inline-flex items-center gap-2 rounded-full bg-white/15 px-5 py-2.5 text-sm font-semibold backdrop-blur transition-colors group-hover:bg-white/25">
-          Folgen <ArrowRightIcon className="h-4 w-4" />
+          {c.igButton} <ArrowRightIcon className="h-4 w-4" />
         </span>
       </a>
     </Section>

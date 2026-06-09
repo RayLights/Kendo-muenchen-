@@ -1,8 +1,19 @@
 import { site } from "@/lib/site";
+import type { Content } from "@/lib/content";
+import type { Locale } from "@/lib/i18n";
 import { FacebookIcon, InstagramIcon } from "./Icons";
 
-export default function Footer() {
+export default function Footer({ c, locale }: { c: Content; locale: Locale }) {
   const year = new Date().getFullYear();
+  const links = [
+    { href: "#ueber-uns", label: c.nav.ueberUns },
+    { href: "#trainer", label: c.nav.trainer },
+    { href: "#training", label: c.nav.training },
+    { href: "#anfaengerkurs", label: c.nav.anfaengerkurs },
+    { href: "#faq", label: c.nav.faq },
+    { href: "#downloads", label: c.nav.downloads },
+  ];
+
   return (
     <footer className="bg-coal text-paper">
       <div className="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:px-6 md:grid-cols-3">
@@ -18,49 +29,28 @@ export default function Footer() {
               {site.name}
             </span>
           </div>
-          <p className="mt-3 max-w-xs text-sm text-paper/70">
-            {site.tagline}. Der größte Kendo-Verein Bayerns.
-          </p>
+          <p className="mt-3 max-w-xs text-sm text-paper/70">{c.footer.brandNote}</p>
         </div>
 
         <nav className="text-sm">
-          <h3 className="font-display font-semibold text-paper/90">Verein</h3>
+          <h3 className="font-display font-semibold text-paper/90">
+            {c.footer.vereinHeading}
+          </h3>
           <ul className="mt-3 space-y-2 text-paper/70">
-            <li>
-              <a href="#ueber-uns" className="hover:text-paper">
-                Über uns
-              </a>
-            </li>
-            <li>
-              <a href="#training" className="hover:text-paper">
-                Training
-              </a>
-            </li>
-            <li>
-              <a href="#trainer" className="hover:text-paper">
-                Trainer
-              </a>
-            </li>
-            <li>
-              <a href="#anfaengerkurs" className="hover:text-paper">
-                Anfängerkurs
-              </a>
-            </li>
-            <li>
-              <a href="#faq" className="hover:text-paper">
-                FAQ
-              </a>
-            </li>
-            <li>
-              <a href="#downloads" className="hover:text-paper">
-                Downloads
-              </a>
-            </li>
+            {links.map((l) => (
+              <li key={l.href}>
+                <a href={l.href} className="hover:text-paper">
+                  {l.label}
+                </a>
+              </li>
+            ))}
           </ul>
         </nav>
 
         <div className="text-sm">
-          <h3 className="font-display font-semibold text-paper/90">Folgen</h3>
+          <h3 className="font-display font-semibold text-paper/90">
+            {c.footer.followHeading}
+          </h3>
           <div className="mt-3 flex gap-3">
             <a
               href={site.social.instagram.url}
@@ -87,14 +77,14 @@ export default function Footer() {
       <div className="border-t border-paper/10">
         <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-5 text-xs text-paper/60 sm:flex-row sm:items-center sm:justify-between sm:px-6">
           <p>
-            © {year} {site.name}. Alle Rechte vorbehalten.
+            © {year} {site.name}. {c.footer.rights}
           </p>
           <p className="flex gap-4">
-            <a href="/impressum" className="hover:text-paper">
-              Impressum
+            <a href={`/${locale}/impressum`} className="hover:text-paper">
+              {c.footer.impressum}
             </a>
-            <a href="/datenschutz" className="hover:text-paper">
-              Datenschutz
+            <a href={`/${locale}/datenschutz`} className="hover:text-paper">
+              {c.footer.datenschutz}
             </a>
           </p>
         </div>
